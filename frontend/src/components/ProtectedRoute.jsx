@@ -1,30 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
-import { fetchCurrentUser } from "../services/auth";
+import React from 'react';
+import { useAuth } from '../contexts/AuthContext';
+import { Navigate, Outlet } from 'react-router-dom';
 
-export default function ProtectedRoute({ allowedRoles, children }) {
-  const [loading, setLoading] = useState(true);
-  const [authorized, setAuthorized] = useState(false);
+const ProtectedRoute = () => {
+    const { token } = useAuth();
 
-  useEffect(() => {
-    let active = true;
-    fetchCurrentUser()
-      .then((user) => {
-        if (!active) return;
-        if (!allowedRoles.length || allowedRoles.includes(user.role)) {
-          setAuthorized(true);
-        } else {
-          setAuthorized(false);
-        }
-      })
-      .catch(() => setAuthorized(false))
-      .finally(() => active && setLoading(false));
-    return () => {
-      active = false;
-    };
-  }, [allowedRoles]);
+    // Add this debugging log
+    console.log("Checking protected route. Token is:", token);
 
-  if (loading) return <div>Loading...</div>;
-  if (!authorized) return <Navigate to="/login" replace />;
-  return <>{children}</>;
-}
+    // If there's a token, render the child components (like AdminPage).
+    // Otherwise, redirect to the login page.
+    return token ? <Outlet /> : <Navigate to="/login" replace />;
+};
+
+export default ProtectedRoute;
