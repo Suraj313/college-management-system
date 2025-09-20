@@ -1,14 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import HomePage from './pages/HomePage.jsx';
 import LoginPage from './pages/Login.jsx';
 import SignupPage from './pages/Signup.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
-
-// 1. Import your new AdminPage component
 import AdminPage from './pages/AdminPage.jsx';
+import CoursePage from './pages/CoursePage.jsx'; // Import the new page
 
 function App() {
     return (
@@ -22,9 +20,8 @@ function App() {
                 {/* Protected Routes */}
                 <Route element={<ProtectedRoute />}>
                     <Route path="/dashboard" element={<DashboardPage />} />
-                    
-                    {/* 2. Add the route for your admin page here */}
                     <Route path="/admin" element={<AdminPage />} />
+                    <Route path="/courses" element={<CoursePage />} /> {/* Add the new route */}
                 </Route>
             </Routes>
         </Router>
