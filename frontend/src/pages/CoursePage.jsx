@@ -40,7 +40,7 @@ function CoursePage() {
         }
     }, [token]);
 
-    // This single function handles both creating a new course and updating an existing one
+    // function handles both creating a new course and updating an existing one
     const handleSubmit = async (e) => {
         e.preventDefault();
         const courseData = { name: courseName, code: courseCode, description: courseDescription };
@@ -105,7 +105,7 @@ function CoursePage() {
             <h1 className="text-4xl font-bold text-gray-800">Course Management</h1>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Course List Table */}
+               
                 <div className="lg:col-span-2 p-6 bg-white border rounded-lg shadow-lg">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6">All Courses</h2>
                     <div className="overflow-x-auto">
@@ -150,8 +150,6 @@ function CoursePage() {
                         </table>
                     </div>
                 </div>
-
-                {/* Create/Update Course Form */}
                 {canManageCourses && (
                     <div className="p-6 bg-white border rounded-lg shadow-lg h-fit">
                         <h2 className="text-2xl font-bold text-gray-800 mb-6">

@@ -16,7 +16,6 @@ def signup(user: schemas.UserCreate, db: Session = Depends(database.get_db)):
     
     hashed_password = security.get_password_hash(user.password)
     
-    # Create the new user, hardcoding the role to 'student' for security.
     new_user = models.User(
         name=user.name, 
         email=user.email, 

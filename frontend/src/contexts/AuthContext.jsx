@@ -1,4 +1,4 @@
-// contexts/AuthContext.jsx
+
 import React, { createContext, useState, useContext } from 'react';
 import { jwtDecode } from 'jwt-decode';
 

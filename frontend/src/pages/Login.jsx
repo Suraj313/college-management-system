@@ -15,9 +15,8 @@ function LoginPage() {
         setError('');
 
         try {
-            // FastAPI's OAuth2 expects form data, not JSON
             const formData = new URLSearchParams();
-            formData.append('username', email); // 'username' is the expected key
+            formData.append('username', email); 
             formData.append('password', password);
 
             const response = await axios.post('http://127.0.0.1:8000/auth/token', formData);

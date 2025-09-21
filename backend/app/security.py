@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
 from . import models, database
 
-# Secret key to sign the JWTs. Store this securely in environment variables for production.
+# Secret key to sign the JWTs
 SECRET_KEY = "e8a3b6c7d2f9a1b0c8d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60

@@ -10,8 +10,6 @@ function StudentDashboard() {
                 Welcome to your dashboard! Here you can view your courses, check your attendance,
                 and see your grades.
             </p>
-            {/* Future components will go here */}
-            {/* e.g., <MyCourses />, <MyGrades /> */}
         </div>
     );
 }

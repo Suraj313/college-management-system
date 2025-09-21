@@ -10,8 +10,6 @@ function TeacherDashboard() {
                 Welcome! From this dashboard, you can manage your courses, take student attendance,
                 and grade assignments.
             </p>
-            {/* Future components will go here */}
-            {/* e.g., <CourseManager />, <AttendanceTaker /> */}
         </div>
     );
 }

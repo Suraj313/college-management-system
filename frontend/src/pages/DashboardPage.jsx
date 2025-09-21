@@ -33,7 +33,7 @@ function DashboardPage() {
             <nav className="flex items-center justify-between p-4 bg-white shadow-md">
                 <h1 className="text-2xl font-bold text-blue-700">College Portal</h1>
                 <div className="flex items-center">
-                    {/* Add this link to the Courses Page */}
+                    
                     <Link 
                         to="/courses" 
                         className="px-4 py-2 mr-4 font-semibold text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
@@ -41,6 +41,59 @@ function DashboardPage() {
                         Courses
                     </Link>
                     
+                    {/* Attendance Links */}
+                    {user && (user.role === 'hod' || user.role === 'superuser') && (
+                        <Link 
+                            to="/view-attendance" 
+                            className="px-4 py-2 mr-4 font-semibold text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+                        >
+                            View Attendance
+                        </Link>
+                    )}
+                    {user && user.role === 'teacher' && (
+                        <Link 
+                            to="/take-attendance" 
+                            className="px-4 py-2 mr-4 font-semibold text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+                        >
+                            Take Attendance
+                        </Link>
+                    )}
+                    {user && user.role === 'student' && (
+                        <Link 
+                            to="/my-attendance" 
+                            className="px-4 py-2 mr-4 font-semibold text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+                        >
+                            My Attendance
+                        </Link>
+                    )}
+
+                    {user && user.role === 'teacher' && (
+                        <Link 
+                            to="/manage-grades" 
+                            className="px-4 py-2 mr-4 font-semibold text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+                        >
+                            Enter Grades
+                        </Link>
+                    )}
+                    {user && (user.role === 'teacher' || user.role === 'hod' || user.role === 'superuser') && (
+                        <Link 
+                            to="/view-grades" // You will need to create this page
+                            className="px-4 py-2 mr-4 font-semibold text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+                        >
+                            View Grades
+                        </Link>
+                    )}
+                    {/* "My Grades" link for students */}
+                    {user && user.role === 'student' && (
+                        <Link 
+                            to="/my-grades" 
+                            className="px-4 py-2 mr-4 font-semibold text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+                        >
+                            My Grades
+                        </Link>
+                    )}
+                    
+                    {/* Admin Link */}
                     {user && user.role === 'superuser' && (
                         <Link 
                             to="/admin"

@@ -1,19 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-// Ensure your background image is imported
 import backgroundImage from '../assets/1.jpg'; 
 
 function HomePage() {
     return (
-        // Main container with the background image
         <div 
             className="flex items-center justify-center min-h-screen bg-cover bg-center"
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
-            {/* The overlay is now part of the card itself, not needed here */}
-
-            {/* Frosted Glass Card */}
             <div className="text-center p-8 md:p-12 rounded-xl
                            border border-white/20 
                            bg-gray-900/30

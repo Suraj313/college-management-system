@@ -10,8 +10,6 @@ function HodDashboard() {
                 Welcome, Head of Department. You can oversee all courses, manage faculty,
                 and view analytics and reports from this portal.
             </p>
-            {/* Future components will go here */}
-            {/* e.g., <FacultyManagement />, <AnalyticsReports /> */}
         </div>
     );
 }

@@ -1,0 +1,10 @@
+
+2025-09-21 12:22:47,769 - INFO - User 'teacher@email.com' is viewing all grades for course ID 2.
+2025-09-21 12:23:03,026 - INFO - User 'admin@email.com' is viewing all grades for course ID 2.
+2025-09-21 12:27:02,061 - INFO - User 'admin@email.com' attempting to create course with code 'CS102'.
+2025-09-21 12:27:02,076 - INFO - Course 'DBMS' (ID: 4) created successfully by 'admin@email.com'.
+2025-09-21 12:27:48,173 - INFO - User 'admin@email.com' attempting to create course with code 'CS103'.
+2025-09-21 12:27:48,179 - INFO - Course 'Computer Network' (ID: 5) created successfully by 'admin@email.com'.
+2025-09-21 12:28:47,001 - INFO - User 'admin@email.com' attempting to create course with code 'CS104'.
+2025-09-21 12:28:47,006 - INFO - Course 'Operating System' (ID: 6) created successfully by 'admin@email.com'.
+2025-09-21 12:29:32,161 - INFO - User 'teacher@email.com' is viewing all grades for course ID 4.

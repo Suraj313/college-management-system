@@ -3,7 +3,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# Replace with your actual PostgreSQL connection details
 SQLALCHEMY_DATABASE_URL = DATABASE_URL="postgresql://college_user:123@localhost:5432/collge_db"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)

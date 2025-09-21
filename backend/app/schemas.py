@@ -1,7 +1,15 @@
 from pydantic import BaseModel, ConfigDict
-from .models import UserRole
+from . import models 
+from typing import List
+from datetime import date
 
-# --- User Schemas ---
+#  User & Course Schemas 
+class UserRole(str, models.enum.Enum):
+    student = "student"
+    teacher = "teacher"
+    hod = "hod"
+    superuser = "superuser"
+
 class UserCreate(BaseModel):
     name: str
     email: str
@@ -22,7 +30,7 @@ class UserDisplay(BaseModel):
     email: str
     role: UserRole
     model_config = ConfigDict(from_attributes=True)
-    
+
 class AdminDashboardData(BaseModel):
     message: str
     sensitive_data: str
@@ -33,7 +41,6 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
-# --- ADD THESE NEW COURSE SCHEMAS ---
 class CourseBase(BaseModel):
     name: str
     code: str
@@ -48,3 +55,34 @@ class CourseUpdate(CourseBase):
 class CourseDisplay(CourseBase):
     id: int
     model_config = ConfigDict(from_attributes=True)
+
+# --- ADD THESE NEW ATTENDANCE SCHEMAS ---
+class AttendanceRecordCreate(BaseModel):
+    student_id: int
+    status: models.AttendanceStatus
+
+class AttendanceSubmission(BaseModel):
+    records: List[AttendanceRecordCreate]
+
+class AttendanceDisplay(BaseModel):
+    id: int
+    date: date
+    status: models.AttendanceStatus
+    student_id: int
+    course_id: int
+    model_config = ConfigDict(from_attributes=True)
+    
+class GradeBase(BaseModel):
+    student_id: int
+    assignment_name: str
+    score: float
+    comments: str | None = None
+
+class GradeCreate(GradeBase):
+    pass
+
+class GradeDisplay(GradeBase):
+    id: int
+    course_id: int
+    
+    model_config = ConfigDict(from_attributes=True)    

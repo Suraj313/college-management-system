@@ -1,8 +1,15 @@
+import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .database import engine
 from . import models
-from .routers import auth, admin, courses
+from .routers import auth, admin, courses, attendance,reports, grades   
+
+logging.basicConfig(
+    filename="app.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -23,6 +30,9 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(admin.router)
 app.include_router(courses.router)
+app.include_router(attendance.router)
+app.include_router(reports.router)
+app.include_router(grades.router)
 
 @app.get("/")
 def read_root():

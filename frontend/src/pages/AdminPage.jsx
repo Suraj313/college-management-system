@@ -23,8 +23,6 @@ function AdminPage() {
 
     useEffect(() => {
         // This effect runs when the component mounts and anytime the 'token' value changes.
-        // If the token is not yet available, the effect will do nothing.
-        // Once the token arrives from the login, the effect re-runs and fetches data.
         if (!token) {
             return;
         }
@@ -51,7 +49,7 @@ function AdminPage() {
 
         fetchData();
         
-    }, [token]); // The dependency array correctly triggers this effect when the token is ready.
+    }, [token]); 
     
     const handleCreateUser = async (e) => {
         e.preventDefault();
@@ -108,7 +106,6 @@ function AdminPage() {
             {error && <p className="p-4 bg-red-100 text-red-700 rounded-lg">{error}</p>}
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Column 1: Info Panel & Create User Form */}
                 <div className="space-y-8">
                     <div className="p-6 bg-white border rounded-lg shadow-lg">
                         <h2 className="text-2xl font-bold text-gray-800 mb-4">System Overview 🛡️</h2>
@@ -138,8 +135,6 @@ function AdminPage() {
                         </form>
                     </div>
                 </div>
-
-                {/* Column 2: User List */}
                 <div className="p-6 bg-white border rounded-lg shadow-lg">
                     <h3 className="mb-6 text-2xl font-bold text-gray-800">Manage Users</h3>
                     <div className="overflow-x-auto">
